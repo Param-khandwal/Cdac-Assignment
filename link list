@@ -1,1 +1,82 @@
+#include<stdio.h>
+#include<stdlib.h>
 
+struct node{
+ int data;
+ struct node *next;
+};
+struct node *start;
+
+void showList(struct node *head){
+while(head!=NULL){
+printf("%d\n",head->data);
+head=head->next;
+}
+}
+
+
+
+void Insert_beg(int ele){
+struct node *temp;
+temp=(struct node*)malloc(sizeof(struct node));
+temp->data=ele;
+temp->next=start;
+start=temp;
+}//end of insert at beggining
+
+
+void Insert_End(int ele)
+{
+struct node *temp,*curr;
+temp=(struct node*)malloc(sizeof(struct node));
+
+temp->data=ele;
+
+if(start==NULL){
+temp->next=NULL;
+start=temp;
+}
+else{
+curr=start;
+while(curr->next!=NULL){
+curr=curr->next;
+}
+temp->next=NULL;
+curr->next=temp;
+
+}
+}
+
+
+void InsertAfter(int ele,int search){
+struct node*current,*temp;
+if(start!=NULL){
+current=current->next;
+if(current!=NULL){
+temp=(struct node*)malloc(sizeof(struct *node));
+temp->next=data;
+temp->next=current->next;
+current->next=temp;
+}
+else{
+printf("Element not found");
+}
+}
+else{
+printf("List is empty");
+}
+
+}
+int main(){
+
+start=NULL;
+
+
+Insert_beg(5);
+Insert_beg(4);
+Insert_beg(5);
+Insert_beg(7);
+Insert_End(5);
+showList(start);
+	
+}
